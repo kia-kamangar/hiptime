@@ -1,4 +1,8 @@
-<% @items.each do |itm| %>
-	<h2><%= link_to itm.title, itm %></h2>
-	<p><%= itm.description %></p>
+<% if user_signed_in? %>
+	<% @items.each do |itm| %>
+		<h2><%= link_to itm.title, itm %></h2>
+		<p><%= itm.description %></p>
+	<% end %>
+<% else %>
+	<%= render "welcome" %>
 <% end %>
